@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/pop_layer.js"></script>
+</head>
+<body>
+	<center>
+		<h1>修改密码</h1>
+				<table border="1" cellpadding="0" cellspacing="0" bordercolor="#C4DEFF">
+					<tr>
+						<td>旧密码：</td>
+						<td><input type="text" name="oldpwd" border="0" id="op"></td>
+					</tr>
+					<tr>
+						<td>新密码：</td>
+						<td><input type="password" name="newpwd" border="0" id="np">
+						</td>
+					</tr>
+					<tr>
+						<td>确认新密码：</td>
+						<td><input type="password" name="newpwdcon" border="0" id="npc">
+						</td>
+					</tr>
+				</table>
+				
+		<button style="color:#BC8F8F" id="ok" name="ok">确定</button>
+		<button style="color:#BC8F8F" id="back" name="back">取消</buton>
+	</center>
+<script language="javascript">
+
+$(document).ready(function(){
+	$("#back").click(
+		function(){
+			window.location.href="right.html";
+		}		
+	);
+	$("#ok").click(
+		function(){
+			var a=$("#op").val();
+			var b=$("#np").val();
+			var c=$("#npc").val();
+
+			if(a==""||b==""||c==""){
+				alert('输入不能为空！');
+			}
+			else{
+				if(b!=c){
+					alert('两次输入的密码不一致！');
+				}
+				else{
+					$.post("UpdatePwd",getParams(),function(data){getResult(data);});
+				}
+			}
+		}	
+	);
+	function getParams(){
+		obj=new Object();
+		obj.oldpwd=$("#op").val();
+		obj.newpwd=$("#np").val();
+		return $.param(obj);
+		
+	}
+	function getResult(data){
+		if(data=="1"){
+			layer.alert("成功修改密码,请重新登陆！",function(){window.location.href="exit.jsp"});
+		}
+		else{
+			alert("原密码错误！");
+		}
+	}
+});
+</script>
+</body>
+</html>

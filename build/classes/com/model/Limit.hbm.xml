@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-4-8 22:56:27 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.Limit" table="t_limit">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="allneed" type="boolean">
+            <column name="ALLNEED" />
+        </property>
+        <property name="addneed" type="boolean">
+            <column name="ADDNEED" />
+        </property>
+        <property name="checkneed" type="boolean">
+            <column name="CHECKNEED" />
+        </property>
+        <property name="uppwd" type="boolean">
+            <column name="UPPWD" />
+        </property>
+        <property name="queryneed" type="boolean">
+            <column name="QUERYNEED" />
+        </property>
+        <property name="staneed" type="boolean">
+            <column name="STANEED" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-4-8 22:56:27 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.model.Need" table="t_need">
+        <id name="num" type="java.lang.String">
+            <column name="NUM" />
+            <generator class="assigned" />
+        </id>
+        <property name="txdz" type="java.lang.String">
+            <column name="TXDZ" />
+        </property>
+        <property name="dwwz" type="java.lang.String">
+            <column name="DWWZ" />
+        </property>
+        <property name="dzxx" type="java.lang.String">
+            <column name="DZXX" />
+        </property>
+        <property name="frdb" type="java.lang.String">
+            <column name="FRDB" />
+        </property>
+        <property name="yzbm" type="java.lang.String">
+            <column name="YZBM" />
+        </property>
+        <property name="lxr" type="java.lang.String">
+            <column name="LXR" />
+        </property>
+        <property name="lxrdh" type="java.lang.String">
+            <column name="LXRDH" />
+        </property>
+        <property name="jgsx" type="java.lang.String">
+            <column name="JGSX" />
+        </property>
+        <property name="jgjj" type="java.lang.String">
+            <column name="JGJJ" />
+        </property>
+        <property name="jsxqmc" type="java.lang.String">
+            <column name="JSXQMC" />
+        </property>
+        <property name="xqgs" type="java.lang.String">
+            <column name="XQGS" />
+        </property>
+        <property name="yjlx" type="java.lang.String">
+            <column name="YJLX" />
+        </property>
+        <property name="xkfl" type="java.lang.String">
+            <column name="XKFL" />
+        </property>
+        <property name="ly" type="java.lang.String">
+            <column name="LY" />
+        </property>
+        <property name="yyhy" type="java.lang.String">
+            <column name="YYHY" />
+        </property>
+        <property name="hzms" type="java.lang.String">
+            <column name="HZMS" />
+        </property>
+        <property name="xmzj" type="int">
+            <column name="XMZJ" />
+        </property>
+        <property name="tjyh" type="java.lang.String">
+            <column name="TJYH" />
+        </property>
+        <property name="tjsj" type="java.lang.String">
+            <column name="TJSJ" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+        <property name="jgmc" type="java.lang.String">
+            <column name="JGMC" />
+        </property>
+        <property name="qsxqnf" type="int">
+            <column name="QSXQNF" />
+        </property>
+        <property name="jzxqnf" type="int">
+            <column name="JZXQNF" />
+        </property>
+        <property name="gkglbm" type="java.lang.String">
+            <column name="GKGLBM" />
+        </property>
+        <property name="szdy" type="java.lang.String">
+            <column name="SZDY" />
+        </property>
+    </class>
+</hibernate-mapping>

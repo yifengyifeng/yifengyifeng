@@ -1,0 +1,403 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>权限管理</title>
+<script src="js/jquery.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/pop_layer.js"></script>
+<script src="layui/layui.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css">
+<style type="text/css">
+.topShow{
+	border-radius: 5px;
+	width:90px;
+	height:50px;
+	background-color:#CCC;
+	line-height:50px;
+	text-align:center;
+}
+a{
+	font-size:18px;
+	display:block;
+	text-decoration:none;
+	color:#03C;
+}
+.main{
+	width:75%;
+	height:500px;
+	border:2px solid #666;
+	display:none;
+	border-radius:5px;
+}
+.buttonStyle{
+	border-radius: 5px;
+	width:90px;
+	height:40px;
+	background-color:#F00;
+	line-height:40px;
+	text-align:center;
+	font-size:18px;
+	font-family:"Microsoft YaHei UI Light";
+	font-weight:bold;
+	border:hidden;
+	outline:none;
+	color:#FFF;
+}
+.tableStyle{
+	position:relative;
+	top:10px;
+	border:2px solid #CCC;
+	border-radius: 25px;
+	font-family:"Microsoft YaHei UI Light";
+}
+td{
+	color:#333;
+	text-align:center;
+}
+tr{
+	height:35px;
+	line-height:35px;
+}
+.boldTr{
+	height:45px;
+	line-height:45px;
+}
+</style>
+</head>
+
+<body>
+<center>
+	<table>
+    	<tr>
+		<td><div class="topShow"><a href="#" targetid="1" id="10" class="tab">用户权限</a></div></td>
+        <td>&nbsp;</td>
+		<td><div class="topShow"><a href="#" targetid="2" id="20" class="tab">角色管理</a></div></td>
+        </tr>
+	</table>
+    <form class="layui-form layui-form-pane1">
+	<div id="1" class="main">
+    	<BR><BR>
+    	<h2>用户权限管理</h2><BR>
+        <div style="width:95%">
+        <script type="text/html" id="barMana">
+  			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">注销用户</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="up">修改角色</a>
+            <a class="layui-btn layui-btn-xs" lay-event="detail">用户详情</a>
+		</script>
+        <table id="usermana" lay-filter="test">
+        </table>
+        </div>
+        <BR><BR>
+    </div>
+    <div id="2" class="main">
+    	<BR><BR>
+    	<h2>角色管理</h2><BR>
+        <div style="height:45px">
+        	<table>
+        		<tr>
+        			<td><button class="buttonStyle" onclick="addLimit()">新增角色</button></td>
+        			<td>&nbsp;</td>
+        			<td><button class="buttonStyle" onclick="updateLimit()">确认修改</button></td>
+        		<tr>
+        	</table>
+        </div><BR><BR>
+        <div class="layui-inline">
+        	<label class="layui-form-label">选择角色</label>
+      		<div class="layui-input-inline">
+        		<select	lay-search="" id="limitid" lay-filter="level">
+          			<option value="">请选择角色</option>
+        		</select>
+      		</div>
+        </div><BR><BR>
+        <table width="95%" class="tableStyle">
+        	<tr style="background-color:#DDD">
+            	<th width="30%">权限名称</th>
+                <th width="50%">权限说明</th>
+                <th width="20%">是否赋予</th>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">查看全部需求</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户可以查寻所有的需求</td>
+                <td>
+                	<input id="allneed" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                </td>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">审核需求</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户审核所有的需求</td>
+                <td>
+                	<input id="checkneed" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                </td>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">修改密码</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户可以修改自己的密码</td>
+                <td>
+                	<input id="uppwd" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" >
+                </td>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">填报需求</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户可以填报技术需求信息</td>
+                <td>
+                	<input id="addneed" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                </td>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">浏览需求</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户可以通过多个条件浏览需求信息</td>
+                <td>
+                	<input id="queryneed" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                </td>
+            </tr>
+            <tr>
+            	<td style="border-right:2px solid #F00">统计需求</td>
+                <td style="text-align:left;border-left:2px solid #F00">用户可以查看统计报表</td>
+                <td>
+                	<input id="staneed" type="checkbox" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                </td>
+            </tr>
+        </table>
+    </div>
+	</form>
+</center>
+</body>
+</html>
+<script>
+	var choose=10;
+	window.onload=function(){
+		$("#10").click();
+		limitS();
+		$.ajax({  
+	        type: "POST",  
+	        url: "UserMana",    
+	        async: true,  
+	        success: function (data) {  
+	        	getManaTable(data);
+	        }  
+	    });
+		switchState();
+		getAllLimit();
+	}
+	$(".tab").click(
+		function(){
+			$("#1,#2,#3").hide();
+			var idVal=$(this).attr("targetid");
+			$("#"+choose).parent("div").css("background-color","#CCC");
+			$("#"+choose).css("font-size","18px");
+			$("#"+choose).css("color","#03C");
+			$("#"+choose).parent("div").css("width","90px");
+			$("#"+choose).parent("div").css("height","50px");
+			$("#"+choose).parent("div").css("line-height","50px");
+			choose=idVal+"0";
+			$(this).parent("div").css("background-color","#F00");
+			$(this).css("font-size","22px");
+			$(this).css("color","#FFF");
+			$(this).parent("div").css("width","108px");
+			$(this).parent("div").css("height","60px");
+			$(this).parent("div").css("line-height","60px");
+			$("#"+idVal).show();
+		}
+	);
+	layui.use('form', function(){
+		var form = layui.form;
+		form.on('switch(switchTest)',
+			function(data){
+				this.checked?$(this).val("true") : $(this).val("false");
+				limitS();
+  			}
+		);
+		form.on('select(level)',
+			function(data){
+				idChange();
+				var tid=$("#limitid").val();
+				if(tid!=""){
+					var obj=new Object();
+					obj.id=tid;
+					$.post("LimitChanger",
+							getParams(obj),
+							function(data){
+								var ll=data.split("|");
+								var l=new Array("allneed","addneed","checkneed","uppwd","queryneed","staneed");
+								for(var i=0;i<6;i++){
+									if(ll[i]=="true"){
+										$("#"+l[i]).attr("checked","true");
+										limitS();
+										renderForm();
+									}
+									else{
+										$("#"+l[i]).removeAttr("checked");
+										limitS();
+										renderForm();
+									}
+								}
+							}
+					);
+				}
+	  		}
+		);
+	});
+	function limitS(){
+		$("#allneed").prop("checked")?$("#allneed").val("true") : $("#allneed").val("false");
+		$("#addneed").prop("checked")?$("#addneed").val("true") : $("#addneed").val("false");
+		$("#checkneed").prop("checked")?$("#checkneed").val("true") : $("#checkneed").val("false");
+		$("#uppwd").prop("checked")?$("#uppwd").val("true") : $("#uppwd").val("false");
+		$("#queryneed").prop("checked")?$("#queryneed").val("true") : $("#queryneed").val("false");
+		$("#staneed").prop("checked")?$("#staneed").val("true") : $("#staneed").val("false");
+	}
+	function getManaTable(data){
+		
+		var jsonObj= JSON.parse(data);
+		var jsonArr = [];
+	    for(var i =0 ;i < jsonObj.length;i++){
+			jsonArr[i] = jsonObj[i];
+	    }
+		layui.use('table', function(){
+			var table = layui.table;
+			table.render({
+				elem: '#usermana'
+		    	,height: 350
+		    	,cols: [[ //表头
+		      		{field: 'user', title: '用户', align:'center',width:'30%',unresize:true}
+					,{field: 'userlimit', title: '当前角色', align:'center',width:'30%',unresize:true}
+					,{field: 'userunit', title: '用户所在单位', align:'center',width:'40%',unresize:true}
+					,{fixed: 'right', width:250, align:'center', toolbar: '#barMana',unresize:true}
+				]]
+				,data:jsonObj
+				,skin: 'row' //表格风格
+			    ,even: true
+			    ,page: true //是否显示分页
+			    ,limits: [5,6,7,8,9,10]
+			    ,limit: 6 //每页默认显示的数量
+			    ,loading: true //请求数据时，是否显示loading
+			    ,unresize:true
+			});
+			table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+			    var data = obj.data //获得当前行数据
+			    ,layEvent = obj.event; //获得 lay-event 对应的值
+			    if(layEvent === 'del'){
+			    	var us=data.user;
+			    	confirm("确定要注销此用户吗？(此操作不可恢复)","注销","取消",
+							function(){$.post("DeleteUser",{user:us},function(data,status){alert(status);if(status=="success"){
+								$.ajax({  
+    						        type: "POST",  
+    						        url: "UserMana",    
+    						        async: true,  
+    						        success: function (data) {  
+    						        	getManaTable(data);
+    						        }  
+    						    });obj.del();layer.close(index);table.render();}})},
+							function(){}
+						);
+			    } 
+			    else if(layEvent === 'up'){
+			    	var us=data.user;
+			    	layer.prompt({title:"输入角色ID:", formType: 3},
+							function(text, index){
+			    				$.post("AlterUserLmit",
+			    					{user:us,limit:text},
+			    					function(data,status){
+			    						if(data=="1"){
+			    							alert("修改权限成功");
+			    							$.ajax({  
+			    						        type: "POST",  
+			    						        url: "UserMana",    
+			    						        async: true,  
+			    						        success: function (data) {  
+			    						        	getManaTable(data);
+			    						        }  
+			    						    });
+			    						}
+			    						else{
+			    							alert("修改失败");
+			    						}
+			    					}
+			    				);
+			    			}
+			    	);
+			    } 
+			    else if(layEvent === 'detail'){
+			    	alert("该模块待开发！");
+			    	
+			    }
+			  });
+		});
+	}
+	function updateLimit(){
+		$.post("UpdateLimit",
+				getParams(getLimitObj()),
+				function(data,status){
+					alert(status);
+				}
+		);
+	}
+	function showTest(){
+		var obj=getLimitObj();
+		alert(getParams(obj));
+	}
+	
+	function getLimitObj(){
+		var obj=new Object();
+		obj.id=$("#limitid").val();
+		obj.allneed=$("#allneed").val();
+		obj.addneed=$("#addneed").val();
+		obj.checkneed=$("#checkneed").val();
+		obj.uppwd=$("#uppwd").val();
+		obj.queryneed=$("#queryneed").val();
+		obj.staneed=$("#staneed").val();
+		return obj;
+	}
+	function getParams(obj){
+		return $.param(obj);
+	}
+	function idChange(){
+		switchState();
+	}
+	
+	function switchState(){
+		if($("#limitid").val()==""){
+			$("#allneed").attr("disabled","true");
+			$("#addneed").attr("disabled","true");
+			$("#checkneed").attr("disabled","true");
+			$("#uppwd").attr("disabled","true");
+			$("#queryneed").attr("disabled","true");
+			$("#staneed").attr("disabled","true");
+		}
+		else{
+			$("#allneed").removeAttr("disabled"); 
+			$("#addneed").removeAttr("disabled"); 
+			$("#checkneed").removeAttr("disabled"); 
+			$("#uppwd").removeAttr("disabled"); 
+			$("#queryneed").removeAttr("disabled"); 
+			$("#staneed").removeAttr("disabled"); 
+		}
+	}
+	function getAllLimit(){
+		$.get("AllLimit", function(data){
+    		var ll=data.split("|");
+    		for(var i=0;i<ll.length;i++){
+    			$("#limitid").append("<option value="+ll[i]+">"+ll[i]+"</option>");
+    		}
+    		renderForm();
+    	});
+	}
+	function renderForm(){
+		layui.use('form', function(){
+			var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+			form.render();
+		});
+	}
+	function addLimit(){
+		$.post("AddLimit",
+				function(data,status){
+					alert(status);
+					if(status=="success"){
+						$("#limitid").empty(); 
+						$("#limitid").append("<option value=''>请选择角色</option>");
+						getAllLimit();
+					}
+				}
+		);
+	}
+</script>

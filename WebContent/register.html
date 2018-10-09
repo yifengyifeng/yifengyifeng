@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户注册</title>
+<style type="text/css">
+	
+	.notnull{color:red;}
+	.cascade { float: left; width: 80px; height: 30px; }
+	.cascade select { width: 100%; height: 100%; }
+	.bt1{width:35%; height:35px; font-size: 18px;
+        font-family:微软雅黑;background-color:aqua;
+        text-align: center; border-radius:5px;}
+    .bt2{width:35%; height:35px; font-size: 18px;
+        font-family:微软雅黑;text-align: center;
+        background-color:aqua;border-radius:5px;}
+    
+</style>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/cursor.js"></script>
+<script src="js/jquery.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/pop_layer.js"></script>
+</head>
+<body>
+
+	<center>
+		<h1 style="color:red">注册</h1>
+			<form>
+				<table border="0"width='35%'>
+					<tr height='30'>
+						
+						<td>账号：</td>
+						<td><input type="text" name="username"></td>
+						<td><nobr class="notnull">*必填，大于6位少于20位</nobr></td>
+					</tr>
+					<tr height='30'>
+						<td>密码：</td>
+						<td><input type="password" name="password">
+						<td><nobr class="notnull">*</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>确认密码：</td>
+						<td><input type="password" name="passwordCon">
+						<td><nobr class="notnull">*</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>真实姓名：</td>
+						<td><input type="text" name="truename">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>性别：</td>
+						<td>
+							<select name="sex">  
+								<option value="男">男</option>  
+								<option value="女">女</option>  
+							</select>  
+							<td><nobr class="notnull">*</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>省市：</td>
+						<td>
+							<div class="cascade">
+        						<select name="province" id="province" onchange="change();">
+        						</select>
+  						    </div>
+
+    						<div class="cascade">
+        						<select name="city" id="city">
+        						</select>
+    						</div>
+							<td><nobr class="notnull">*必填</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>工作单位：</td>
+						<td><input type="text" name="unit">
+						<td><nobr class="notnull">*必填</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>专业方向：</td>
+						<td><input type="text" name="direct">
+						<td><nobr class="notnull">*必填</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>所在行业：</td>
+						<td><input type="text" name="profession">
+						<td><nobr class="notnull">*必填</nobr></td>
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>教育程度：</td>
+						<td><input type="text" name="edu">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>职称：</td>
+						<td><input type="text" name="ttp">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>通讯地址：</td>
+						<td><input type="text" name="addr">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>邮政编码：</td>
+						<td><input type="text" name="postcode" id="postcode">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>手机号：</td>
+						<td><input type="text" name="mobilephone" id="mobilephone" maxlength="11">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>固话：</td>
+						<td><input type="text" name="statephone" id="statephone">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>电子邮箱：</td>
+						<td><input type="text" name="email">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>QQ：</td>
+						<td><input type="text" name="qq" id="qq">
+						</td>
+					</tr>
+					<tr height='30'>
+						<td>MSN：</td>
+						<td><input type="text" name="msn">
+						</td>
+					</tr>
+				</table>
+			</form>
+				<br>
+				<button name="bt11" class="bt1" onclick="confir()" onMouseOut="this.style.backgroundColor='aqua'" onMouseOver="this.style.backgroundColor='blue'"><strong>确&nbsp;&nbsp;&nbsp;&nbsp;认</strong></button>
+				<br><br>
+				<button name="bt22" class="bt2" onclick="back()" onMouseOut="this.style.backgroundColor='aqua'" onMouseOver="this.style.backgroundColor='red'"><strong>取&nbsp;&nbsp;&nbsp;&nbsp;消</strong></button>
+			
+	</center>
+<script language="javascript">
+function formsub(){
+	var url="Register";
+	var a=new Array(document.forms[0].username.value,
+			document.forms[0].password.value,
+			document.forms[0].truename.value,
+			document.forms[0].sex.value,
+			document.forms[0].province.value,
+			document.forms[0].city.value,
+			document.forms[0].unit.value,
+			document.forms[0].direct.value,
+			document.forms[0].profession.value,
+			document.forms[0].edu.value,
+			document.forms[0].ttp.value,
+			document.forms[0].addr.value,
+			document.forms[0].postcode.value,
+			document.forms[0].mobilephone.value,
+			document.forms[0].statephone.value,
+			document.forms[0].email.value,
+			document.forms[0].qq.value,
+			document.forms[0].msn.value);
+	var params="username="+dCode(a[0])+"&password="+dCode(a[1])+"&truename="+dCode(a[2])+"&sex="+dCode(a[3])+"&province="+dCode(a[4])
+	+"&city="+dCode(a[5])
+	+"&unit="+dCode(a[6])+"&direct="+dCode(a[7])+"&profession="+dCode(a[8])+"&edu="+dCode(a[9])+"&ttp="+dCode(a[10])
+	+"&addr="+dCode(a[11])+"&postcode="+dCode(a[12])+"&mobilephone="+dCode(a[13])+"&statephone="+dCode(a[14])
+	+"&email="+dCode(a[15])+"&qq="+dCode(a[16])+"&msn="+dCode(a[17]);
+	sendRequest(url,params,'GET',getresult);
+}
+function getresult(){
+	if(xmlHttpRequest.readyState==4){
+		if(xmlHttpRequest.status==200){
+			
+			var info=xmlHttpRequest.responseText;
+			
+			if(info==1){
+				layer.alert("注册成功，跳转至登录界面！",
+						function(){
+							window.location.href="login.html";
+						}
+				);
+				
+			}
+			else{
+				alert(info);
+			}
+		}
+	}
+}
+function back(){
+	window.location.href="login.html";
+}
+function confir(){
+	var b=document.forms[0].password.value;
+	var c=document.forms[0].passwordCon.value;
+	var d=document.forms[0].unit.value;
+	var a=document.forms[0].direct.value;
+	var e=document.forms[0].profession.value;
+	var f=document.forms[0].username.value;
+	
+	if(a==""||b==""||c==""||d==""||e==""){
+		alert("必填项目输入不能为空！");
+	}
+	else{
+		if(b!=c){
+			alert("两次输入的密码不一致！");
+			
+		}
+		else if(f.length<6||f.length>20){
+			alert("用户名大于6位少于20位！");
+		}
+		else{
+			formsub();
+		}
+	}
+
+}
+</script>
+<script type="text/javascript">
+var text = document.getElementById("mobilephone");
+text.onkeyup = function(){
+this.value=this.value.replace(/\D/g,'');
+}
+</script>
+</script>
+<script type="text/javascript">
+var text = document.getElementById("statephone");
+text.onkeyup = function(){
+this.value=this.value.replace(/\D/g,'');
+}
+</script>
+</script>
+<script type="text/javascript">
+var text = document.getElementById("qq");
+text.onkeyup = function(){
+this.value=this.value.replace(/\D/g,'');
+}
+</script>
+</script>
+<script type="text/javascript">
+var text = document.getElementById("postcode");
+text.onkeyup = function(){
+this.value=this.value.replace(/\D/g,'');
+}
+</script>
+<script type="text/javascript">
+        //首先建立一个你需要省，和它对应的市的数组，如下：
+        var cityList = new Array();
+        cityList['北京市'] = ['朝阳区', '东城区', '西城区', '海淀区', '宣武区', '丰台区', '怀柔', '延庆', '房山'];
+        cityList['上海市'] = ['宝山区', '长宁区', '丰贤区', '虹口区', '黄浦区', '青浦区', '南汇区', '徐汇区', '卢湾区'];
+        cityList['广州省'] = ['广州市', '惠州市', '汕头市', '珠海市', '佛山市', '中山市', '东莞市'];
+        cityList['深圳市'] = ['福田区', '罗湖区', '盐田区', '宝安区', '龙岗区', '南山区', '深圳周边'];
+        cityList['重庆市'] = ['俞中区', '南岸区', '江北区', '沙坪坝区', '九龙坡区', '渝北区', '大渡口区', '北碚区'];
+        cityList['天津市'] = ['和平区', '河西区', '南开区', '河北区', '河东区', '红桥区', '塘古区', '开发区'];
+        cityList['江苏省'] = ['南京市', '苏州市', '无锡市'];
+        cityList['浙江省'] = ['杭州市', '宁波市', '温州市'];
+        cityList['四川省'] = ['成都市'];
+        cityList['海南省'] = ['海口市'];
+        cityList['福建省'] = ['福州市', '厦门市', '泉州市', '漳州市'];
+        cityList['山东省'] = ['济南市', '青岛市', '烟台市'];
+        cityList['江西省'] = ['南昌市'];
+        cityList['广西省'] = ['柳州市', '南宁市'];
+        cityList['安徽省'] = ['合肥市'];
+        cityList['河北省'] = ['邯郸市', '石家庄市'];
+        cityList['河南省'] = ['郑州市', '洛阳市'];
+        cityList['湖北省'] = ['武汉市', '宜昌市'];
+        cityList['湖南省'] = ['长沙市'];
+        cityList['陕西省'] = ['西安市'];
+        cityList['山西省'] = ['太原市'];
+        cityList['黑龙江省'] = ['哈尔滨市'];
+       
+        function change() {
+            var pVal = document.getElementById("province").value; //获取省份列表中的值
+            var c = document.getElementById("city"); //获取城市列表
+            c.options.length = 0; //清楚当前城市列表中的值
+            for (var i in cityList) { //循环遍历cityList的属性
+                if (i == pVal) { //判断当i等于省份列表中的值时;
+                    for (var j in cityList[i]) { //循环遍历cityList[i]的属性
+                        c.add(new Option(cityList[i][j], cityList[i][j]), null)
+                        //城市列表的末尾增加一个<option>选项，text：cityList[i][j]，value：cityList[i][j]
+                    }
+                    break;
+                }
+            }
+        }
+
+        function allCity() {
+            var p = document.getElementById("province"); //获取省份列表
+            var c = document.getElementById("city");
+            for (var i in cityList) { //循环遍历cityList的属性
+                p.add(new Option(i, i), null);
+                
+            }
+            for (var j=0;j<cityList['北京市'].length;j++){
+            	c.add(new Option(cityList['北京市'][j], cityList['北京市'][j]), null);
+            }
+        }
+        window.onload = allCity;
+
+</script>
+</body>
+</html>

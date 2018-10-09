@@ -1,0 +1,772 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>河北省重大技术需求征集系统</title>
+<script src="js/jquery.js"></script> 
+<style>
+	table{position:relative;left:47px;}
+	.divBt{
+		color:#F00;
+		cursor:pointer;
+		background-color:aqua;
+		width:150px;
+		height:50px;
+		border-radius:10px;
+		text-align:center;
+		font-size:24px;
+		line-height:50px;
+		font-family:微软雅黑;
+		font-weight:bold;
+	}
+	body{font-family:Arial; font-size:15px;}
+	.tree{width:320px; height:580px;}
+	.main{
+		position:absolute;
+		left:370px;
+		top:6px;
+		width:680px;
+		height:580px;
+		border:5px;
+		border-color:#999;
+	}
+	li>span{font-weight: 600;}
+	li>span,li>p{
+		color:red;
+		display:block;
+		cursor:pointer;
+		border-radius: 5px;
+		width:auto;
+		height:30px;
+		background-color:aqua;
+		margin:2px;
+		text-align:left;
+		line-height:30px;
+	}
+	p{font-size:5px;}
+	span:hover {
+		background-color:#0CC;
+	}
+	p:hover {
+		background-color:#0CC;
+	}
+	li,ul{
+		list-style: none;
+	}
+	.treeMenu{display:none;}
+	.treeList{display:none;}
+	.tm{}
+	.tl{}
+	.close:before{ content:"+ ";}
+	.open:before{ content: "\2212  "; }
+</style>
+</head>
+<body>
+<table>
+	<tr>
+    	<td><div class="divBt" id="btLeft">基础研究</div></td>
+        <td><div class="divBt" id="btRight">非基础研究</div></td>
+    </tr>
+</table>
+<div class="main">
+	<iframe width="100%" height="100%" style="border-radius:20px;" id="frame"></iframe>
+</div>
+
+<ul class="tree" id="1">
+    <li><span class='tm'>A数理科学部</span>
+    	<ul class='treeMenu'>
+        	<li><span class='tl'>A01 数学</span>
+            	<ul class='treeList'>
+                	<li><p>A0101 基础数学</p></li>
+					<li><p>A0102 应用数学</p></li>
+					<li><p>A0103 计算数学与科学工程计算</p></li>
+                </ul>
+            </li>
+			<li><span class='tl'>A02 力学</span><ul class='treeList'>
+            	<li><p>A0201 一般力学</p></li>
+				<li><p>A0202 固体力学</p></li>
+				<li><p>A0203 流体力学</p></li>
+				<li><p>A0204 交叉与边缘领域的力学</p></li>
+            </ul></li>
+			<li><span class='tl'>A03 天文学</span><ul class='treeList'>
+            	<li><p>A0301 宇宙学</p></li>
+				<li><p>A0302 星系和类星体</p></li>
+				<li><p>A0303 恒星物理与星际物质</p></li>
+				<li><p>A0304 太阳和太阳系</p></li>
+				<li><p>A0305 射电天文</p></li>
+				<li><p>A0306 空间天文</p></li>
+				<li><p>A0307 理论天体物理</p></li>
+				<li><p>A0308 天体测量和天文地球动力学</p></li>
+				<li><p>A0309 天体力学和人造卫星动力学</p></li>
+				<li><p>A0310 时间、频率</p></li>
+				<li><p>A0311 天文仪器</p></li>
+				<li><p>A0312 天文学史</p></li>
+            </ul></li>
+			<li><span class='tl'>A04 物理学Ⅰ</span><ul class='treeList'>
+            	<li><p>A0401 凝聚态物性Ｉ:结构、力学</p></li>
+				<li><p>A0402 凝聚态物性Ⅱ：电子结构</p></li>
+				<li><p>A0403 原子和分子物理</p></li>
+				<li><p>A0404 光学</p></li>
+            </ul></li>
+			<li><span class='tl'>A05 物理学Ⅱ</span><ul class='treeList'>
+            	<li><p>A0501 基础物理学</p></li>
+				<li><p>A0502 粒子物理学和场论</p></li>
+				<li><p>A0503 核物理</p></li>
+				<li><p>A0504 核技术及其应用</p></li>
+				<li><p>A0505 粒子物理与核物理实验设备</p></li>
+				<li><p>A0506 等离子体物理</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>B化学科学部</span>
+    	<ul class='treeMenu'>
+        	<li><span class='tl'>B01 无机化学</span><ul class='treeList'>
+            	<li><p>B0101 无机合成和制备化学</p></li>
+				<li><p>B0102 丰产元素化学</p></li>
+				<li><p>B0103 配位化学</p></li>
+				<li><p>B0104 生物无机化学</p></li>
+				<li><p>B0105 固体无机化学</p></li>
+				<li><p>B0106 分离化学</p></li>
+				<li><p>B0107 物理无机化学</p></li>
+				<li><p>B0108 同位素化学</p></li>
+				<li><p>B0109 放射化学</p></li>
+				<li><p>B0110 核化学</p></li>
+            </ul></li>
+			<li><span class='tl'>B02 有机化学</span><ul class='treeList'>
+                <li><p>B0201 有机合成</p></li>
+                <li><p>B0202 金属有机及元素有机化学</p></li>
+                <li><p>B0203 天然有机化学</p></li>
+                <li><p>B0204 物理有机化学</p></li>
+                <li><p>B0205 药物化学</p></li>
+                <li><p>B0206 生物有机化学</p></li>
+				<li><p>B0207 有机分析</p></li>
+				<li><p>B0208 应用有机化学</p></li>
+            </ul></li>
+			<li><span class='tl'>B03 物理化学</span><ul class='treeList'>
+                <li><p>B0301 结构化学</p></li>
+                <li><p>B0302 量子化学</p></li>
+                <li><p>B0303 催化</p></li>
+                <li><p>B0304 化学动力学</p></li>
+                <li><p>B0305 胶体与界面化学</p></li>
+                <li><p>B0306 电化学</p></li>
+                <li><p>B0307 光化学</p></li>
+                <li><p>B0308 热化学</p></li>
+                <li><p>B0309 高能化学</p></li>
+                <li><p>B0310 计算化学</p></li>
+            </ul></li>
+			<li><span class='tl'>B04 高分子化学</span><ul class='treeList'>
+                <li><p>B0401 高分子合成</p></li>
+                <li><p>B0402 高分子反应</p></li>
+                <li><p>B0403 功能高分子</p></li>
+                <li><p>B0404 天然高分子</p></li>
+                <li><p>B0405 高分子物理及高分子物理化学</p></li>
+                <li><p>B0406 高分子理论化学</p></li>
+                <li><p>B0407 聚合物工程及材料</p></li>
+            </ul></li>
+			<li><span class='tl'>B05 分析化学</span><ul class='treeList'>
+                <li><p>B0501 色谱分析</p></li>
+                <li><p>B0502 电化学分析</p></li>
+                <li><p>B0503 光谱分析</p></li>
+                <li><p>B0504 波谱分析</p></li>
+                <li><p>B0505 质谱分析</p></li>
+                <li><p>B0506 化学分析</p></li>
+                <li><p>B0507 热分析</p></li>
+                <li><p>B0508 放射分析</p></li>
+                <li><p>B0509 生化分析及生物传感</p></li>
+                <li><p>B0510 联用技术</p></li>
+                <li><p>B0511 采样、分离和富集方法</p></li>
+                <li><p>B0512 化学计量学</p></li>
+                <li><p>B0513 表面、微区、形态分析</p></li>
+            </ul></li>
+			<li><span class='tl'>B06 化学工程及工业化学</span><ul class='treeList'>
+                <li><p>B0601 化工热力学和基础数据</p></li>
+                <li><p>B0602 传递过程</p></li>
+                <li><p>B0603 分离过程及设备</p></li>
+                <li><p>B0604 化学反应工程</p></li>
+                <li><p>B0605 化工系统工程</p></li>
+                <li><p>B0606 无机化工</p></li>
+                <li><p>B0607 有机化工</p></li>
+                <li><p>B0608 生物化工与食品化工</p></li>
+                <li><p>B0609 能源化工</p></li>
+                <li><p>B0610 化工冶金</p></li>
+                <li><p>B0611 环境化工</p></li>
+                <li><p>B0612 制药工程</p></li>
+            </ul></li>
+			<li><span class='tl'>B07 环境化学</span><ul class='treeList'>
+                <li><p>B0701 环境分析化学</p></li>
+                <li><p>B0702 环境污染化学</p></li>
+                <li><p>B0703 污染控制化学</p></li>
+                <li><p>B0704 污染生态化学</p></li>
+                <li><p>B0705 理论环境化学</p></li>
+                <li><p>B0706 全球性环境化学问题</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>C生命科学部</span>
+    	<ul class='treeMenu'>
+        	<li><span class='tl'>C01 基础生物学</span><ul class='treeList'>
+                <li><p>C0101 微生物学</p></li>
+                <li><p>C0102 植物学</p></li>
+                <li><p>C0103 动物学</p></li>
+                <li><p>C0104 生物化学和分子生物学</p></li>
+                <li><p>C0105 生物物理学与生物医学工程学</p></li>
+                <li><p>C0106 神经生物学</p></li>
+                <li><p>C0107 生理学</p></li>
+                <li><p>C0108 心理学</p></li>
+                <li><p>C0109 细胞生物学及发育生物学</p></li>
+                <li><p>C0110 遗传学</p></li>
+            </ul></li>
+        	<li><span class='tl'>C02 农业科学</span><ul class='treeList'>
+                <li><p>C0201 农业基础科学</p></li>
+                <li><p>C0202 农学</p></li>
+                <li><p>C0203 畜牧、兽医学</p></li>
+                <li><p>C0204 蚕桑、养蜂学</p></li>
+                <li><p>C0205 水产学</p></li>
+                <li><p>C0206 林学</p></li>
+            </ul></li>
+        	<li><span class='tl'>C03 医学与药学</span><ul class='treeList'>
+                <li><p>C0301 预防医学与卫生学</p></li>
+                <li><p>C0302 基础医学</p></li>
+                <li><p>C0303 临床医学</p></li>
+                <li><p>C0304 药物学</p></li>
+                <li><p>C0305 中医中药学</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>D地球科学部</span>
+    	<ul class='treeMenu'>
+            <li><span class='tl'>D01 地理学、土壤学和遥感</span><ul class='treeList'>
+                <li><p>D0101 综合自然地理学</p></li>
+                <li><p>D0102 地貌学</p></li>
+                <li><p>D0103 应用气候学</p></li>
+                <li><p>D0104 水资源与水文学</p></li>
+                <li><p>D0105 冰雪、冻土学</p></li>
+                <li><p>D0106 经济地理学</p></li>
+                <li><p>D0107 城市地理学</p></li>
+                <li><p>D0108 生物地理学</p></li>
+                <li><p>D0109 区域地理</p></li>
+                <li><p>D0110 区域可持续发展</p></li>
+                <li><p>D0111 土壤地理学</p></li>
+                <li><p>D0112 土壤物理学</p></li>
+                <li><p>D0113 土壤化学</p></li>
+                <li><p>D0114 土壤生物学</p></li>
+                <li><p>D0115 土壤肥力</p></li>
+                <li><p>D0116 土壤侵蚀与水土保持</p></li>
+                <li><p>D0117 遥感成像机理</p></li>
+                <li><p>D0118 遥感信息处理</p></li>
+                <li><p>D0119 遥感信息模型与方法</p></li>
+                <li><p>D0120 资源环境信息系统</p></li>
+                <li><p>D0121 测绘学</p></li>
+                <li><p>D0122 污染物表生行为及环境效应</p></li>
+                <li><p>D0123 区域环境质量演变</p></li>
+                <li><p>D0124 人类活动与环境效应</p></li>
+                <li><p>D0125 环境演变与对策</p></li>
+            </ul></li>
+            <li><span class='tl'>D02 地质学</span><ul class='treeList'>
+                <li><p>D0201 古生物学（含古人类学）</p></li>
+                <li><p>D0202 地层学（含磁性地层学）</p></li>
+                <li><p>D0203 矿物学</p></li>
+                <li><p>D0204 岩石学</p></li>
+                <li><p>D0205 矿床学</p></li>
+                <li><p>D0206 沉积学</p></li>
+                <li><p>D0207 石油、天然气地质学</p></li>
+                <li><p>D0208 煤田地质学</p></li>
+                <li><p>D0209 第四纪地质学</p></li>
+                <li><p>D0210 前寒武纪地质学与变质地质学</p></li>
+                <li><p>D0211 构造地质学</p></li>
+                <li><p>D0212 大地构造学</p></li>
+                <li><p>D0213 水文地质学</p></li>
+                <li><p>D0214 工程地质学</p></li>
+                <li><p>D0215 数学地质学</p></li>
+                <li><p>D0216 地热地质学</p></li>
+                <li><p>D0217 遥感地质</p></li>
+                <li><p>D0218 环境地质</p></li>
+            </ul></li>
+            <li><span class='tl'>D03 地球化学</span><ul class='treeList'>
+                <li><p>D0301 同位素地球化学</p></li>
+                <li><p>D0302 微量元素地球化学</p></li>
+                <li><p>D0303 岩石地球化学</p></li>
+                <li><p>D0304 矿床地球化学（含有机地球化学）</p></li>
+                <li><p>D0305 同位素年代学</p></li>
+                <li><p>D0306 实验地球化学</p></li>
+                <li><p>D0307 天体化学与比较行星学</p></li>
+                <li><p>D0308 地球化学新技术、新方法</p></li>
+                <li><p>D0309 环境地球化学与生物地球化学</p></li>
+            </ul></li>
+            <li><span class='tl'>D04 地球物理学和空间物理学</span><ul class='treeList'>
+                <li><p>D0401 大地测量学</p></li>
+                <li><p>D0402 地震学</p></li>
+                <li><p>D0403 地磁学（含古地磁学）</p></li>
+                <li><p>D0404 电磁学（电磁测深）</p></li>
+                <li><p>D0405 重力学</p></li>
+                <li><p>D0406 地热学(大地热流)</p></li>
+                <li><p>D0407 深部地球物理</p></li>
+                <li><p>D0408 地球动力学</p></li>
+                <li><p>D0410 空间物理</p></li>
+                <li><p>D04101 高层大气物理学</p></li>
+                <li><p>D04102电离层物理学</p></li>
+                <li><p>D04103 磁层物理学</p></li>
+                <li><p>D04104 行星际物理学</p></li>
+                <li><p>D04105 宇宙线物理学</p></li>
+                <li><p>D0411 地球物理实验与仪器</p></li>
+                <li><p>D0412 空间环境科学</p></li>
+            </ul></li>
+            <li><span class='tl'>D05 大气科学</span><ul class='treeList'>
+                <li><p>D0501 大气物理学</p></li>
+                <li><p>D0502 大气边界层物理和大气湍流</p></li>
+                <li><p>D0503 大气遥感和大气探测</p></li>
+                <li><p>D0504 中层大气物理学</p></li>
+                <li><p>D0505 天气学</p></li>
+                <li><p>D0506 大气动力学</p></li>
+                <li><p>D0507 气候学</p></li>
+                <li><p>D0508 数值天气预报和数值模拟</p></li>
+                <li><p>D0509 应用气象学</p></li>
+                <li><p>D0510 大气化学</p></li>
+                <li><p>D0511 行星大气学</p></li>
+                <li><p>D0512 大气环境</p></li>
+                <li><p>D0513 气象仪器</p></li>
+            </ul></li>
+            <li><span class='tl'>D06 海洋科学</span><ul class='treeList'>
+                <li><p>D0601 物理海洋学</p></li>
+                <li><p>D0602 海洋物理学</p></li>
+                <li><p>D0603 海洋地质学</p></li>
+                <li><p>D0604 海洋化学</p></li>
+                <li><p>D0605 河口海岸学</p></li>
+                <li><p>D0606 工程海洋学</p></li>
+                <li><p>D0607 海洋监测、调查技术</p></li>
+                <li><p>D0608 海洋环境科学</p></li>
+                <li><p>D0609 生物海洋学</p></li>
+                <li><p>D0610 海洋遥感</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>E工程与材料科学部</span>
+    	<ul class='treeMenu'>
+            <li><span class='tl'>E01 金属材料学科</span><ul class='treeList'>
+                <li><p>E0101 金属结构材料及制备基础</p></li>
+                <li><p>E0102 金属基复合材料及制备基础</p></li>
+                <li><p>E0103 金属非晶态、准晶和纳米晶材料及制备基础</p></li>
+                <li><p>E0104极端（指超高温、超高压、强辐照等等）</p></li>
+                <li><p>E0105金属功能材料</p></li>
+                <li><p>E0106 金属材料的合金相图、相变及合金设计</p></li>
+                <li><p>E0107 金属材料的结构与缺陷</p></li>
+                <li><p>E0108 金属材料的形变与断裂</p></li>
+                <li><p>E0109 金属材料的凝固与结晶学</p></li>
+                <li><p>E0110 表面改性中有关金属材料的科学问题</p></li>
+                <li><p>E0111 金属腐蚀与防护</p></li>
+                <li><p>E0112 金属磨损与磨蚀</p></li>
+            </ul></li>
+            <li><span class='tl'>E02 无机非金属材料科学</span><ul class='treeList'>
+                <li><p>E0201 人工晶体</p></li>
+                <li><p>E0202 玻璃材料</p></li>
+                <li><p>E0203 结构陶瓷</p></li>
+                <li><p>E0205 水泥与耐火材料</p></li>
+                <li><p>E0206 碳素材料与超硬材料</p></li>
+                <li><p>E0207 无机涂层及薄膜</p></li>
+                <li><p>E0208 无机非金属基复合材料</p></li>
+                <li><p>E0209 无机非金属类半导体材料</p></li>
+                <li><p>E0210 无机非金属类电介质与电解质材料</p></li>
+                <li><p>E0211 无机非金属类磁性材料</p></li>
+                <li><p>E0212 古陶瓷与传统陶瓷</p></li>
+            </ul></li>
+            <li><span class='tl'>E03 有机高分子材料学科</span><ul class='treeList'>
+                <li><p>E0301 塑料、橡胶、纤维</p></li>
+                <li><p>E0302 聚合物基复合材料</p></li>
+                <li><p>E0303 功能高分子材料</p></li>
+                <li><p>E0304 多组分多相高分子材料</p></li>
+                <li><p>E0305 高分子型助剂</p></li>
+                <li><p>E0306 胶粘剂</p></li>
+                <li><p>E0307 涂料</p></li>
+                <li><p>E0308 高分子液晶材料</p></li>
+                <li><p>E0309 高分子耐磨和自润滑材料</p></li>
+                <li><p>E0310 耐高温、耐腐蚀、耐烧蚀高分子材料</p></li>
+                <li><p>E0311 元素及金属有机材料</p></li>
+            </ul></li>
+            <li><span class='tl'>E04 冶金与矿业学科</span><ul class='treeList'>
+                <li><p>E0401 矿物资源开采</p></li>
+                <li><p>E0402 矿物资源工程</p></li>
+                <li><p>E0403 冶金物理化学及其应用</p></li>
+                <li><p>E0404 冶金反应工程学与系统工程</p></li>
+                <li><p>E0405 特殊冶金与材料制备工程</p></li>
+                <li><p>E0406 钢铁冶金、金属精炼、现代冶金铸轧</p></li>
+                <li><p>E0407 有色金属冶金与分离工程</p></li>
+                <li><p>E0408 粉体工程与粉末冶金</p></li>
+                <li><p>E0409 冶金环境工程</p></li>
+                <li><p>E0410 其它</p></li>
+            </ul></li>
+            <li><span class='tl'>E05 机械工程学科</span><ul class='treeList'>
+                <li><p>E0501 机械学</p></li>
+                <li><p>E0502 机械制造</p></li>
+            </ul></li>
+            <li><span class='tl'>E06 工程热物理与能源利用学科</span><ul class='treeList'>
+                <li><p>E0601 工程热力学</p></li>
+                <li><p>E0602 热流体力学</p></li>
+                <li><p>E0603 传热传质学</p></li>
+                <li><p>E0604 燃烧学</p></li>
+                <li><p>E0605 热物性与热物理测试技术</p></li>
+                <li><p>E0606 新能源利用</p></li>
+                <li><p>E0607 两相与多相热物理学</p></li>
+                <li><p>E0608 热力系统动态特性学</p></li>
+                <li><p>E0609 其它</p></li>
+            </ul></li>
+            <li><span class='tl'>E07 电工学科</span><ul class='treeList'>
+                <li><p>E0701 电工基础理论</p></li>
+                <li><p>E0702 电机学</p></li>
+                <li><p>E0703 电器学</p></li>
+                <li><p>E0704 电力系统</p></li>
+                <li><p>E0705 绝缘与高电压</p></li>
+                <li><p>E0706 电力电子</p></li>
+                <li><p>E0707 电工新技术基础</p></li>
+                <li><p>E0708 电工测量及仪器</p></li>
+                <li><p>E0709 电力电磁兼容</p></li>
+                <li><p>E0710 超导电工技术</p></li>
+                <li><p>E0711 电加工</p></li>
+                <li><p>E0712 静电技术</p></li>
+            </ul></li>
+            <li><span class='tl'>E08 建筑环境与结构工程学科</span><ul class='treeList'>
+                <li><p>E0801 建筑工程数学与力学</p></li>
+                <li><p>E0802 建筑系统工程学</p></li>
+                <li><p>E0803 建筑学</p></li>
+                <li><p>E0804 城乡规划学</p></li>
+                <li><p>E0805 建筑物理学</p></li>
+                <li><p>E0806 环境工程学</p></li>
+                <li><p>E0807 结构工程学</p></li>
+                <li><p>E0808 地基与基础工程学</p></li>
+                <li><p>E0809 交通工程学</p></li>
+                <li><p>E0810 防灾工程学</p></li>
+                <li><p>E0811 建筑材料学</p></li>
+                <li><p>E0812 建筑施工与管理学</p></li>
+            </ul></li>
+            <li><span class='tl'>E09 水利学科</span><ul class='treeList'>
+                <li><p>E0901 水工结构</p></li>
+                <li><p>E0902 水力学</p></li>
+                <li><p>E0903 水文、水资源</p></li>
+                <li><p>E0904 河流、海岸动力学及泥沙研究</p></li>
+                <li><p>E0905 岩土力学及地基基础</p></li>
+                <li><p>E0906 环境水利</p></li>
+                <li><p>E0907 农田水利</p></li>
+                <li><p>E0908 水工新材料</p></li>
+                <li><p>E0909 水力机械</p></li>
+            </ul></li>
+            <li><span class='tl'>E10 农业工程</span><ul class='treeList'>
+                <li><p>E1001农业机械学</p></li>
+                <li><p>E1002 农业机械化</p></li>
+                <li><p>E1003 农业电气化与自动化</p></li>
+                <li><p>E1004水土保持学</p></li>
+                <li><p>E1005农田测量</p></li>
+                <li><p>E1006农业环保工程</p></li>
+                <li><p>E1007 农业区划</p></li>
+                <li><p>E1008 农业系统工程</p></li>
+                <li><p>E1009 农业工程其它学科</p></li>
+            </ul></li>
+            <li><span class='tl'>E11 林业工程</span><ul class='treeList'>
+                <li><p>E1101 森林采运学</p></li>
+                <li><p>E1102 林业机械</p></li>
+                <li><p>E1103林业机械化与自动化</p></li>
+                <li><p>E1104 木材学</p></li>
+                <li><p>E1105木材加工与人造板工艺学</p></li>
+                <li><p>E1106 木材防腐学</p></li>
+                <li><p>E1107 林产化学加工学</p></li>
+                <li><p>E1108 林业工程其它学科</p></li>
+            </ul></li>
+            <li><span class='tl'>E12 食品工程</span><ul class='treeList'>
+                <li><p>E1201 食品科学技术基础</p></li>
+                <li><p>E1202 食品加工技术</p></li>
+                <li><p>E1203 食品包装与储藏</p></li>
+                <li><p>E1204 食品机械</p></li>
+                <li><p>E1205 食品加工的副产品加工与利用</p></li>
+            </ul></li>
+            <li><span class='tl'>E13 纺织科学技术</span><ul class='treeList'>
+                <li><p>E1301 纺织科学技术基础</p></li>
+                <li><p>E1302 纺织材料</p></li>
+                <li><p>E1303 纤维制造技术</p></li>
+                <li><p>E1304 纺织技术</p></li>
+                <li><p>E1305 染整技术</p></li>
+                <li><p>E1306 服装技术</p></li>
+                <li><p>E1307 纺织机械与设备</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>F信息科学部</span>
+    	<ul class='treeMenu'>
+            <li><span class='tl'>F01 电子学与信息系统</span><ul class='treeList'>
+                <li><p>F0101 信息理论与信息系统</p></li>
+                <li><p>F0102 信号理论与信号处理</p></li>
+                <li><p>F0103 电路与系统</p></li>
+                <li><p>F0104 电磁场与微波技术</p></li>
+                <li><p>F0105 电子离子物理、材料与器件</p></li>
+                <li><p>F0106 生物电子学</p></li>
+            </ul></li>
+            <li><span class='tl'>F02 计算机科学</span><ul class='treeList'>
+                <li><p>F0201 理论计算机科学</p></li>
+                <li><p>F0202 计算机软件</p></li>
+                <li><p>F0203 计算机系统结构</p></li>
+                <li><p>F0204 计算机外围设备技术</p></li>
+                <li><p>F0205 计算机应用基础研究</p></li>
+                <li><p>F0206 中国语言文字信息处理</p></li>
+            </ul></li>
+            <li><span class='tl'>F03 自动化科学</span><ul class='treeList'>
+                <li><p>F0301 控制理论</p></li>
+                <li><p>F0302 工程系统与控制</p></li>
+                <li><p>F0303 系统科学与系统工程</p></li>
+                <li><p>F0304 模式信息处理</p></li>
+                <li><p>F0305 智能系统与知识工程</p></li>
+                <li><p>F0306 机器人学及机器人技术</p></li>
+            </ul></li>
+            <li><span class='tl'>F04 半导体科学</span><ul class='treeList'>
+                <li><p>F0401 半导体材料</p></li>
+                <li><p>F0402 微电子学</p></li>
+                <li><p>F0403 半导体光电子学</p></li>
+                <li><p>F0404 半导体其它器件</p></li>
+                <li><p>F0405 半导体物理</p></li>
+                <li><p>F0406 半导体化学</p></li>
+                <li><p>F0407 半导体理化分析</p></li>
+            </ul></li>
+            <li><span class='tl'>F05 光学和光电子学</span><ul class='treeList'>
+                <li><p>F0501 光学信息处理</p></li>
+                <li><p>F0502 光电子器件</p></li>
+                <li><p>F0503 光信息传输</p></li>
+                <li><p>F0504 激光</p></li>
+                <li><p>F0505 非线性光学</p></li>
+                <li><p>F0506 红外技术</p></li>
+                <li><p>F0507 光谱技术</p></li>
+                <li><p>F0508 技术光学</p></li>
+                <li><p>F0509 光学和光电子材料</p></li>
+                <li><p>F0510 交叉学科中的光学问题</p></li>
+            </ul></li>
+        </ul>
+    </li>
+	<li><span class='tm'>G管理科学部</span>
+    	<ul class='treeMenu'>
+            <li><span class='tl'>G01 管理科学</span><ul class='treeList'>
+                <li><p>G0101 管理科学与管理思想史</p></li>
+                <li><p>G0102 一般管理理论</p></li>
+                <li><p>G0103 运筹与管理</p></li>
+                <li><p>G0104 决策与对策理论</p></li>
+                <li><p>G0105 组织理论</p></li>
+                <li><p>G0106 管理心理与行为理论</p></li>
+                <li><p>G0107 管理系统工程</p></li>
+                <li><p>G0108 评估技术</p></li>
+                <li><p>G0109 预测技术</p></li>
+                <li><p>G0110 数量经济分析方法</p></li>
+                <li><p>G0111 工业工程</p></li>
+                <li><p>G0112 信息技术与管理</p></li>
+                <li><p>G0113 复杂性研究</p></li>
+            </ul></li>
+            <li><span class='tl'>G02 工商管理</span><ul class='treeList'>
+                <li><p>G0201 企业理论</p></li>
+                <li><p>G0202 企业战略管理</p></li>
+                <li><p>G0203 会计理论与方法</p></li>
+                <li><p>G0204 财务管理</p></li>
+                <li><p>G0205 市场营销</p></li>
+                <li><p>G0206 运作管理</p></li>
+                <li><p>G0207 项目管理</p></li>
+                <li><p>G0208 人力资源管理</p></li>
+                <li><p>G0209 技术经济与技术管理</p></li>
+                <li><p>G0210 企业文化</p></li>
+            </ul></li>
+            <li><span class='tl'>G03 宏观管理与政策</span><ul class='treeList'>
+                <li><p>G0301 宏观经济战略与管理</p></li>
+                <li><p>G0302 公共管理与公共政策</p></li>
+                <li><p>G0303 金融管理</p></li>
+                <li><p>G0304 财税管理</p></li>
+                <li><p>G0305 农林经济管理</p></li>
+                <li><p>G0306 产业与行业管理</p></li>
+                <li><p>G0307 科技管理与科技政策</p></li>
+                <li><p>G0308 信息资源管理</p></li>
+                <li><p>G0309 资源与环境管理</p></li>
+                <li><p>G0310 区域发展与管理</p></li>
+            </ul></li>
+        </ul>
+    </li>
+</ul>
+
+<ul class="tree" id="2">
+            <li><span class='tm'>A 农、林、牧、渔业 </span><ul class='treeMenu'>
+                <li><p>01 农业</p></li>
+                <li><p>02 林业</p></li>
+                <li><p>03 畜牧业</p></li>
+                <li><p>04 渔业</p></li>
+                <li><p>05 农、林、牧、渔专业及辅助性活动</p></li>
+            </ul></li>
+            <li><span class='tm'>B 采矿业</span><ul class='treeMenu'>
+                <li><p>06 煤炭开采和洗选业</p></li>
+                <li><p>07 石油和天然气开采业</p></li>
+                <li><p>08 黑色金属矿采选业</p></li>
+                <li><p>09 有色金属矿采选业</p></li>
+                <li><p>10 非金属矿采选业</p></li>
+                <li><p>11 开采专业及辅助性活动</p></li>
+                <li><p>12 其他采矿业</p></li>
+            </ul></li>
+            <li><span class='tm'>C 制造业</span><ul class='treeMenu'>
+                <li><p>13 农副食品加工业</p></li>
+                <li><p>14 食品制造业</p></li>
+                <li><p>15 酒、饮料和精制茶制造业</p></li>
+                <li><p>16 烟草制品业</p></li>
+                <li><p>17 纺织业</p></li>
+                <li><p>18 纺织服装、服饰业</p></li>
+                <li><p>19 皮革、毛皮、羽毛及其制品和制鞋业</p></li>
+                <li><p>20 木材加工和木、竹、藤、棕、草制品业</p></li>
+                <li><p>21 家具制造业</p></li>
+                <li><p>22 造纸和纸制品业</p></li>
+                <li><p>23 印刷和记录媒介复制业</p></li>
+                <li><p>24 文教、工美、体育和娱乐用品制造业</p></li>
+                <li><p>25 石油、煤炭及其他燃料加工业</p></li>
+                <li><p>26 化学原料和化学制品制造业</p></li>
+                <li><p>27 医药制造业</p></li>
+                <li><p>28 化学纤维制造业</p></li>
+                <li><p>29 橡胶和塑料制品业</p></li>
+                <li><p>30 非金属矿物制品业</p></li>
+                <li><p>31 黑色金属冶炼和压延加工业</p></li>
+                <li><p>32 有色金属冶炼和压延加工业</p></li>
+                <li><p>33 金属制品业</p></li>
+                <li><p>34 通用设备制造业</p></li>
+                <li><p>35 专用设备制造业</p></li>
+                <li><p>36 汽车制造业</p></li>
+                <li><p>37 铁路、船舶、航空航天和其他运输设备制造业</p></li>
+                <li><p>38 电气机械和器材制造业</p></li>
+                <li><p>39 计算机、通信和其他电子设备制造业</p></li>
+                <li><p>40 仪器仪表制造业</p></li>
+                <li><p>41 其他制造业</p></li>
+                <li><p>42 废弃资源综合利用业</p></li>
+                <li><p>43 金属制品、机械和设备修理业</p></li>
+            </ul></li>
+            <li><span class='tm'>D 电力、热力、燃气及水生产和供应业</span><ul class='treeMenu'>
+                <li><p>44 电力、热力生产和供应业</p></li>
+                <li><p>45 燃气生产和供应业</p></li>
+                <li><p>46 水的生产和供应业</p></li>
+            </ul></li>
+            <li><span class='tm'>E 建筑业</span><ul class='treeMenu'>
+                <li><p>47 房屋建筑业</p></li>
+                <li><p>48 土木工程建筑业</p></li>
+                <li><p>49 建筑安装业</p></li>
+                <li><p>50 建筑装饰、装修和其他建筑业</p></li>
+            </ul></li>
+            <li><span class='tm'>F 批发和零售业</span><ul class='treeMenu'>
+                <li><p>51 批发业</p></li>
+                <li><p>52 零售业</p></li>
+            </ul></li>
+            <li><span class='tm'>G 交通运输、仓储和邮政业</span><ul class='treeMenu'>
+                <li><p>53 铁路运输业</p></li>
+                <li><p>54 道路运输业</p></li>
+                <li><p>55 水上运输业</p></li>
+                <li><p>56 航空运输业</p></li>
+                <li><p>57 管道运输业</p></li>
+                <li><p>58 多式联运和运输代理业</p></li>
+                <li><p>59 装卸搬运和仓储业</p></li>
+                <li><p>60 邮政业</p></li>
+            </ul></li>
+            <li><span class='tm'>H 住宿和餐饮业</span><ul class='treeMenu'>
+                <li><p>61 住宿业</p></li>
+                <li><p>62 餐饮业</p></li>
+            </ul></li>
+            <li><span class='tm'>I 信息传输、软件和信息技术服务业</span><ul class='treeMenu'>
+                <li><p>63 电信、广播电视和卫星传输服务</p></li>
+                <li><p>64 互联网和相关服务</p></li>
+                <li><p>65 软件和信息技术服务业</p></li>
+            </ul></li>
+            <li><span class='tm'>J 金融业</span><ul class='treeMenu'>
+                <li><p>66 货币金融服务</p></li>
+                <li><p>67 资本市场服务</p></li>
+                <li><p>68 保险业</p></li>
+                <li><p>69 其他金融业</p></li>
+            </ul></li>
+            <li><span class='tm'>K 房地产业</span><ul class='treeMenu'>
+                <li><p>70 房地产业</p></li>
+            </ul></li>
+            <li><span class='tm'>L 租赁和商务服务业</span><ul class='treeMenu'>
+                <li><p>71 租赁业</p></li>
+                <li><p>72 商务服务业</p></li>
+            </ul></li>
+            <li><span class='tm'>M 科学研究和技术服务业</span><ul class='treeMenu'>
+                <li><p>73 研究和试验发展</p></li>
+                <li><p>74 专业技术服务业</p></li>
+                <li><p>75 科技推广和应用服务业</p></li>
+            </ul></li>
+            <li><span class='tm'>N 水利、环境和公共设施管理业</span><ul class='treeMenu'>
+                <li><p>76 水利管理业</p></li>
+                <li><p>77 生态保护和环境治理业</p></li>
+                <li><p>78 公共设施管理业</p></li>
+                <li><p>79 土地管理业</p></li>
+            </ul></li>
+            <li><span class='tm'>O 居民服务、修理和其他服务业</span><ul class='treeMenu'>
+                <li><p>80 居民服务业</p></li>
+                <li><p>81 机动车、电子产品和日用产品修理业</p></li>
+                <li><p>82 其他服务业</p></li>
+            </ul></li>
+            <li><span class='tm'>P 教育</span><ul class='treeMenu'>
+                <li><p>83 教育</p></li>
+            </ul></li>
+            <li><span class='tm'>Q 卫生和社会工作</span><ul class='treeMenu'>
+                <li><p>84 卫生</p></li>
+                <li><p>85 社会工作</p></li>
+            </ul></li>
+            <li><span class='tm'>R 文化、体育和娱乐业</span><ul class='treeMenu'>
+                <li><p>86 新闻和出版业</p></li>
+                <li><p>87 广播、电视、电影和录音制作业</p></li>
+                <li><p>88 文化艺术业</p></li>
+                <li><p>89 体育</p></li>
+                <li><p>90 娱乐业</p></li>
+            </ul></li>
+            <li><span class='tm'>S 公共管理、社会保障和社会组织</span><ul class='treeMenu'>
+                <li><p>91 中国共产党机关</p></li>
+                <li><p>92 国家机构</p></li>
+                <li><p>93 人民政协、民主党派</p></li>
+                <li><p>94 社会保障</p></li>
+                <li><p>95 群众团体、社会团体和其他成员组织</p></li>
+                <li><p>96 基层群众自治组织及其他组织</p></li>
+            </ul></li>
+            <li><span class='tm'>T 国际组</span><ul class='treeMenu'>
+                <li><p>97 国际组织</p></li>
+            </ul></li>
+</ul>
+
+</body>
+</html>
+<script>
+var choose=1;
+window.onload=function(){
+	$("span").addClass("close");	
+	$("#btLeft").css("background-color","#069");
+	$("#2").hide();
+}
+$(function(){
+	$("#btLeft").click(
+		function(){
+			choose=1;
+			$(this).css("background-color","#069");	
+			$("#btRight").css("background-color","aqua");	
+			$("#2").hide();
+			$("#1").show();
+		}
+	);
+	$("#btRight").click(
+		function(){
+			choose=2;
+			$(this).css("background-color","#069");	
+			$("#btLeft").css("background-color","aqua");
+			$("#1").hide();
+			$("#2").show();	
+		}
+	);
+	$("p").click(
+		function(){
+			var f=$(this).text();
+			var url="fenlei.jsp?choose="+choose+"&fl="+f;
+			$("#frame").attr("src",url);
+		}
+	);
+	$("span.tm").click(
+		function(){
+			$(this).toggleClass("close open");
+			$(this).parent("li").children("ul").slideToggle("fast");
+		}
+	);
+	$("span.tl").click(
+		function(){
+			$(this).toggleClass("close open");
+			$(this).parent("li").children("ul").slideToggle("fast");
+		}
+	);
+});
+</script>

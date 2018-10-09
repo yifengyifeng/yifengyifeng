@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/ajax.js"></script>
+<title>查看需求</title>
+<style type="text/css">
+    .condition{
+        position:relative;
+        height:15%;
+    }
+   .input{
+		resize:none;
+	}
+</style>
+<script type="text/javascript" src="js/cursor.js"></script>
+</head>
+<body>
+	<a target="aright" style='text-decoration: none' href="admin_right.html" >返回</a>
+	<center>
+        <form>
+        	<label class="condition" >审核状态：
+        		<select name='state' id='st' onchange='checkCon()'>
+        			<option value="0">全部</option>  
+        			<option value="1">未审核</option> 
+					<option value="2">已通过</option> 
+					<option value="3">被退回</option> 
+        		</select>
+        	</label>
+            <label class="condition" >选择开始日期：<input type="date" name="fromdate" value="2010-01-01" onchange='checkCon()'/></label>
+            <label class="condition" >选择结束日期：<input type="date" name="todate" value="2020-01-01" onchange='checkCon()'/></label>
+            <label class="condition" ><input type="button" value="查看全部" onclick="showAll()"/></label>
+            
+	<table width="60%" border="0" class="input">
+        <tr>
+        	<td>机构属性:</td>
+        	<td>
+        		<select name="jgsx" onchange='checkCon()' class="input">  
+        			<option value="请选择">全部</option>  
+					<option value="企业">企业</option>  
+					<option value="高等院校">高等院校</option>  
+					<option value="研究机构">研究机构</option> 
+					<option value="其他">其他</option>  
+				</select> 
+        	</td>
+        
+	
+        	<td>合作模式:</td>
+        	<td>
+        		<select name="hzms" onchange='checkCon()'>  
+        			<option value="请选择">全部</option>
+					<option value="合作开发">合作开发</option>  
+					<option value="独立开发">独立开发</option> 
+					<option value="技术转让">技术转让</option>
+					<option value="技术入股">技术入股</option>  
+				</select>
+			</td>
+		</tr>
+    </table>
+    </center>	
+</body>
+
+</html>
+<script language="javascript">
+    function checkCon(){
+        var a=document.forms[0].fromdate.value;
+        var b=document.forms[0].todate.value;
+        var c=document.forms[0].state.value;
+        var e=document.forms[0].jgsx.value;
+        var f=document.forms[0].hzms.value;
+        if(a==""||b==""){
+            window.parent.ashow.location.href= "null.html"; 
+        }
+        else if(a>b){
+            window.parent.ashow.location.href= "null.html"; 
+        }
+        else{
+            window.parent.ashow.location.href= " admin_showall.jsp?fromdate='"+dCode(a)+"'&todate='"+dCode(b)+"'&state='"+dCode(c)+"'&jgsx='"+dCode(e)+"'&hzms='"+dCode(f)+"' ";  
+        }
+    }
+    function showAll(){
+    	location=location;
+    	window.parent.ashow.location.href= "admin_showall.jsp"; 
+    }
+</script>

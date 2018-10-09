@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/pop_layer.js"></script>
+<style type="text/css">
+	.btStyle{
+		width:35%;
+		height:40px;
+		font-weight:bold;
+		line-height:40px;
+		border-radius:10px;
+		color:#1E1E1E;
+		background-color:aqua;
+		font-size:22px;
+		font-family:微软雅黑;
+		border:hidden;
+		outline:none;
+		cursor:pointer;
+	}
+	.btStyle:hover{
+		background-color:red;
+	}
+	.divBt{
+		outline:none;
+		width:150px;
+		height:30px;
+		border-radius:50px;
+		color:#1E1E1E;
+		background-color:aqua;
+		line-height:25px;
+		font-family:微软雅黑;
+		font-size:16px;
+		cursor:pointer;
+		text-align:center;
+		font-weight:bold;
+		border:hidden;
+	}
+	.divBt:hover{
+		background-color:red;
+	}
+	select{
+		background-color:#E3E3E3;
+		resize:none;
+		font-family:微软雅黑;
+		font-size:18px;
+		width:100%;
+		height:100%;
+		border:hidden;
+		text-align:center;
+	}
+	table{text-align:left;border=1;cellpadding='0';cellspacing='0';border-color:#FFF;}
+	html{background-color:#E3E3E3;font-family:'微软雅黑'}
+
+</style>
+</head>
+<body>
+<center>
+	<table>
+		<tr>
+    		<td><button class="divBt" id="add">增加筛选条件</button></td>
+        	<td><button class="divBt" id="des">减少筛选条件</button></td>
+    	</tr>
+    </table>
+    <div id="1">
+    	<table width="75%" border="2" cellpadding="0"  bordercolor="aqua">
+        	<tr>
+				<th colspan="1" width="25%">审核状态：</th>
+				<th colspan="1" width="25%">研究类型：</th>
+				<th colspan="1" width="25%">合作模式：</th>
+				<th colspan="1" width="25%">机构属性：</th>
+			</tr>
+            <tr>
+				<td>
+                	<select id='st1'>
+        				<option value="%">全部</option>  
+        				<option value="未审核">未审核</option> 
+						<option value="已通过">已通过</option> 
+						<option value="被退回">被退回</option> 
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='lx1'>
+        				<option value="基础研究">基础研究</option>
+                        <option value="应用研究">应用研究</option>
+                        <option value="试验发展">试验发展</option>
+                        <option value="研究与试验发展成果应用">研究与试验发展成果应用</option>
+                        <option value="技术推广与科技服务">技术推广与科技服务</option>
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='ms1'>
+						<option value="合作开发">合作开发</option>  
+						<option value="独立开发">独立开发</option> 
+						<option value="技术转让">技术转让</option>
+						<option value="技术入股">技术入股</option>
+                        <option value="其他">其他</option>  
+        			</select>
+                </td>
+                <td>
+                	<select id='sx1'>
+        				<option value="企业">企业</option>  
+						<option value="高等院校">高等院校</option>  
+						<option value="研究机构">研究机构</option> 
+						<option value="其他">其他</option>  
+        			</select>
+                </td>
+			</tr>
+        </table>
+    </div>
+    
+    <div id="2" style="display:none;">
+    	<table width="75%" border="2" cellpadding="0"  bordercolor="aqua">
+        	<tr>
+				<th colspan="1" width="25%">审核状态：</th>
+				<th colspan="1" width="25%">研究类型：</th>
+				<th colspan="1" width="25%">合作模式：</th>
+				<th colspan="1" width="25%">机构属性：</th>
+			</tr>
+            <tr>
+				<td>
+                	<select id='st2'>
+        				<option value="%">全部</option>  
+        				<option value="未审核">未审核</option> 
+						<option value="已通过">已通过</option> 
+						<option value="被退回">被退回</option> 
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='lx2'>
+        				<option value="基础研究">基础研究</option>
+                        <option value="应用研究">应用研究</option>
+                        <option value="试验发展">试验发展</option>
+                        <option value="研究与试验发展成果应用">研究与试验发展成果应用</option>
+                        <option value="技术推广与科技服务">技术推广与科技服务</option>
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='ms2'>
+						<option value="合作开发">合作开发</option>  
+						<option value="独立开发">独立开发</option> 
+						<option value="技术转让">技术转让</option>
+						<option value="技术入股">技术入股</option>
+                        <option value="其他">其他</option>  
+        			</select>
+                </td>
+                <td>
+                	<select id='sx2'>
+        				<option value="企业">企业</option>  
+						<option value="高等院校">高等院校</option>  
+						<option value="研究机构">研究机构</option> 
+						<option value="其他">其他</option>  
+        			</select>
+                </td>
+			</tr>
+        </table>
+    </div>
+    
+    <div id="3" style="display:none;">
+    	<table width="75%" border="2" cellpadding="0"  bordercolor="aqua">
+        	<tr>
+				<th colspan="1" width="25%">审核状态：</th>
+				<th colspan="1" width="25%">研究类型：</th>
+				<th colspan="1" width="25%">合作模式：</th>
+				<th colspan="1" width="25%">机构属性：</th>
+			</tr>
+            <tr>
+				<td>
+                	<select id='st3'>
+        				<option value="%">全部</option>  
+        				<option value="未审核">未审核</option> 
+						<option value="已通过">已通过</option> 
+						<option value="被退回">被退回</option> 
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='lx3'>
+        				<option value="基础研究">基础研究</option>
+                        <option value="应用研究">应用研究</option>
+                        <option value="试验发展">试验发展</option>
+                        <option value="研究与试验发展成果应用">研究与试验发展成果应用</option>
+                        <option value="技术推广与科技服务">技术推广与科技服务</option>
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='ms3'>
+						<option value="合作开发">合作开发</option>  
+						<option value="独立开发">独立开发</option> 
+						<option value="技术转让">技术转让</option>
+						<option value="技术入股">技术入股</option>
+                        <option value="其他">其他</option>  
+        			</select>
+                </td>
+                <td>
+                	<select id='sx3'>
+        				<option value="企业">企业</option>  
+						<option value="高等院校">高等院校</option>  
+						<option value="研究机构">研究机构</option> 
+						<option value="其他">其他</option>  
+        			</select>
+                </td>
+			</tr>
+        </table>
+    </div>
+    
+    <div id="4" style="display:none;">
+    	<table width="75%" border="2" cellpadding="0"  bordercolor="aqua">
+        	<tr>
+				<th colspan="1" width="25%">审核状态：</th>
+				<th colspan="1" width="25%">研究类型：</th>
+				<th colspan="1" width="25%">合作模式：</th>
+				<th colspan="1" width="25%">机构属性：</th>
+			</tr>
+            <tr>
+				<td>
+                	<select id='st4'>
+        				<option value="%">全部</option>  
+        				<option value="未审核">未审核</option> 
+						<option value="已通过">已通过</option> 
+						<option value="被退回">被退回</option> 
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='lx4'>
+        				<option value="基础研究">基础研究</option>
+                        <option value="应用研究">应用研究</option>
+                        <option value="试验发展">试验发展</option>
+                        <option value="研究与试验发展成果应用">研究与试验发展成果应用</option>
+                        <option value="技术推广与科技服务">技术推广与科技服务</option>
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='ms4'>
+						<option value="合作开发">合作开发</option>  
+						<option value="独立开发">独立开发</option> 
+						<option value="技术转让">技术转让</option>
+						<option value="技术入股">技术入股</option>
+                        <option value="其他">其他</option>  
+        			</select>
+                </td>
+                <td>
+                	<select id='sx4'>
+        				<option value="企业">企业</option>  
+						<option value="高等院校">高等院校</option>  
+						<option value="研究机构">研究机构</option> 
+						<option value="其他">其他</option>  
+        			</select>
+                </td>
+			</tr>
+        </table>
+    </div>
+    
+    <div id="5" style="display:none;">
+    	<table width="75%" border="1" cellpadding="0"  bordercolor="aqua">
+        	<tr>
+				<th colspan="1" width="25%">审核状态：</th>
+				<th colspan="1" width="25%">研究类型：</th>
+				<th colspan="1" width="25%">合作模式：</th>
+				<th colspan="1" width="25%">机构属性：</th>
+			</tr>
+            <tr>
+				<td>
+                	<select id='st5'>
+        				<option value="%">全部</option>  
+        				<option value="未审核">未审核</option> 
+						<option value="已通过">已通过</option> 
+						<option value="被退回">被退回</option> 
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='lx5'>
+        				<option value="基础研究">基础研究</option>
+                        <option value="应用研究">应用研究</option>
+                        <option value="试验发展">试验发展</option>
+                        <option value="研究与试验发展成果应用">研究与试验发展成果应用</option>
+                        <option value="技术推广与科技服务">技术推广与科技服务</option>
+        			</select>
+                </td>
+                
+                <td>
+                	<select id='ms5'>
+						<option value="合作开发">合作开发</option>  
+						<option value="独立开发">独立开发</option> 
+						<option value="技术转让">技术转让</option>
+						<option value="技术入股">技术入股</option>
+                        <option value="其他">其他</option>  
+        			</select>
+                </td>
+                <td>
+                	<select id='sx5'>
+        				<option value="企业">企业</option>  
+						<option value="高等院校">高等院校</option>  
+						<option value="研究机构">研究机构</option> 
+						<option value="其他">其他</option>  
+        			</select>
+                </td>
+			</tr>
+        </table>
+    </div>
+    <br>
+    <button id="ok" class="btStyle">确定</button> <button id="cc" class="btStyle">取消</button>
+    
+</center>
+</body>
+</html>
+<script language="javascript">
+$(document).ready(function(){
+	var selectNum=1;
+	function back(){
+		window.location.href= "admin_right.html";
+	}
+	function getParams(){
+		var tjArray=new Array();
+			tjArray[0]=new Array($("#st1").val(),$("#lx1").val(),$("#ms1").val(),$("#sx1").val());
+			tjArray[1]=new Array($("#st2").val(),$("#lx2").val(),$("#ms2").val(),$("#sx2").val());
+			tjArray[2]=new Array($("#st3").val(),$("#lx3").val(),$("#ms3").val(),$("#sx3").val());
+			tjArray[3]=new Array($("#st4").val(),$("#lx4").val(),$("#ms4").val(),$("#sx4").val());
+			tjArray[4]=new Array($("#st5").val(),$("#lx5").val(),$("#ms5").val(),$("#sx5").val());
+		obj=new Object();
+		var s="(STATE like"+"'"+tjArray[0][0]+"'"+" and YJLX ="+"'"+tjArray[0][1]+"'"+" and HZMS ="+"'"+tjArray[0][2]+"'"+" and JGSX ="+"'"+tjArray[0][3]+"'"+")";
+		var tj=""+s;
+		
+		for(var i=2;i<=selectNum;i++){
+			s="(STATE like"+"'"+tjArray[i-1][0]+"'"+" and YJLX ="+"'"+tjArray[i-1][1]+"'"+" and HZMS ="+"'"+tjArray[i-1][2]+"'"+" and JGSX ="+"'"+tjArray[i-1][3]+"'"+")";
+			tj+=" or "+s;	
+		}
+		obj.condition=tj;
+		return $.param(obj);
+	}
+	$("#add").click(
+		function(){
+			if(selectNum<=4){
+				selectNum++;
+				var id="#"+selectNum;
+				$(id).slideDown();
+			}
+			else{
+				alert("不能添加更多条件了！");
+			}
+		}
+	);
+	$("#des").click(
+		function(){
+			if(selectNum>=2){
+				var id="#"+selectNum;
+				$(id).slideUp();
+				selectNum--;
+			}
+			else{
+				alert("不能添加更多条件了！");
+
+			}
+		}
+	);
+	$("#ok").click(
+		function(){
+			window.location.href= "ManyConServlet?"+getParams(); 
+			//alert(getParams());
+		}
+	);
+	$("#cc").click(
+		function(){
+			confirm("确定离开本页吗？",'是','否',
+					function(){back();},
+					function(){})
+		}
+	);
+});
+
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/cursor.js"></script>
+<title>查看需求</title>
+<style type="text/css">
+    .condition{
+        position:relative;
+        height:15%;
+    }
+</style>
+</head>
+<body>
+	<a style='text-decoration: none' href="right.html" target="myframe" >返回</a>
+	<center>
+        <form>
+        	<label class="condition" >审核状态：
+        		<select name='state' id='st' onchange='checkCon()'>
+        			<option value="0">全部</option>  
+        			<option value="1">未审核</option> 
+					<option value="2">已通过</option> 
+					<option value="3">被退回</option> 
+        		</select>
+        	</label>
+            <label class="condition" >选择开始日期：<input type="date" name="fromdate" value="2010-01-01" onchange='checkCon()'/></label>
+            <label class="condition" >选择结束日期：<input type="date" name="todate" value="2020-01-01" onchange='checkCon()'/></label>
+            <label class="condition" ><input type="button" value="查看全部" onclick="showAll()"/></label>
+        </form>
+	</center>
+    
+</body>
+
+</html>
+<script language="javascript">
+    function checkCon(){
+        var a=document.forms[0].fromdate.value;
+        var b=document.forms[0].todate.value;
+        var c=document.forms[0].state.value;
+        if(a==""||b==""){
+            alert('日期选择为空！');
+            window.parent.show.location.href= "null.html"; 
+        }
+        else if(a>b){
+            alert('开始日期大于结束日期！');
+            window.parent.show.location.href= "null.html"; 
+        }
+        else{
+            window.parent.show.location.href= "showmyall.jsp?fromdate='"+dCode(a)+"'&todate='"+dCode(b)+"'&state='"+dCode(c)+"'";
+        }
+    }
+    function showAll(){
+    	location=location;
+    	window.parent.show.location.href= "showmyall.jsp"; 
+    }
+    
+</script>
